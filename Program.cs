@@ -222,11 +222,6 @@ namespace GuTenTak.Corki
                         Circle.Draw(Color.Red, 400, Player.Instance.Position);
                     }
                 }
-
-                if (R.IsReady() && R.IsLearned)
-                {
-                    Circle.Draw(Color.Black, R.Range, Player.Instance.Position);
-                }
             }
             catch (Exception e)
             {
