@@ -1,0 +1,13 @@
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\bin\Release\GuTenTak_Corki.exe.config
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\obj\Debug\GuTenTak_Corki.Properties.Resources.resources
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\obj\Debug\GuTenTak_Corki.csproj.GenerateResource.Cache
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\obj\Debug\GuTenTak_Corki.csprojResolveAssemblyReference.cache
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\bin\Release\GuTenTak_Corki.exe
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\bin\Release\GuTenTak_Corki.pdb
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\bin\Release\EloBuddy.dll
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\bin\Release\EloBuddy.SDK.dll
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\bin\Release\SharpDX.Direct3D9.dll
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\bin\Release\SharpDX.dll
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\bin\Release\Newtonsoft.Json.dll
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\obj\Debug\GuTenTak_Corki.exe
+E:\Users\smart\Desktop\ez\Elobuddy - Corki\obj\Debug\GuTenTak_Corki.pdb
