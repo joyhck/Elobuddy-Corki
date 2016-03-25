@@ -109,6 +109,8 @@ namespace GuTenTak.Corki
                 ModesMenu1.Add("ManaHQ", new Slider("Mana %", 40));
                 ModesMenu1.Add("HarassR", new CheckBox("Use R on Harass", true));
                 ModesMenu1.Add("ManaHR", new Slider("Mana %", 60));
+                ModesMenu1.Add("HRStack", new Slider("Use R Save on Harass ", 3, 0, 6));
+
                 ModesMenu1.AddSeparator();
                 ModesMenu1.AddLabel("Kill Steal Configs");
                 ModesMenu1.Add("KS", new CheckBox("Use KillSteal", true));
@@ -126,6 +128,7 @@ namespace GuTenTak.Corki
                 ModesMenu2.Add("JungleQ", new CheckBox("Use Q on JungleClear", true));
                 ModesMenu2.Add("ManaJR", new Slider("Mana %", 40));
                 ModesMenu2.Add("JungleR", new CheckBox("Use R on JungleClear", true));
+                ModesMenu2.Add("LJRStack", new Slider("Use R Save on Clear ", 3, 0, 6));
 
                 ModesMenu3 = Menu.AddSubMenu("Misc", "Modes3Corki");
                 ModesMenu3.AddLabel("Misc Configs");

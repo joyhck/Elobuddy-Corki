@@ -202,7 +202,8 @@ namespace GuTenTak.Corki
                 var useR = ModesMenu1["HarassR"].Cast<CheckBox>().CurrentValue;
                 var Rp = R.GetPrediction(RTarget);
                 if (!RTarget.IsValid()) return;
-                if (R.IsInRange(RTarget) && R.IsReady() && useR && !RTarget.IsInvulnerable && Program._Player.ManaPercent >= Program.ModesMenu1["ManaHR"].Cast<Slider>().CurrentValue)
+                if (R.IsInRange(RTarget) && R.IsReady() && useR && !RTarget.IsInvulnerable && Program._Player.ManaPercent >= Program.ModesMenu1["ManaHR"].Cast<Slider>().CurrentValue
+                    && R.Handle.Ammo <= ModesMenu1["HRStack"].Cast<Slider>().CurrentValue)
                 {
                     float rSplash = 140;
                     if (Player.HasBuff("corkimissilebarragecounterbig"))
@@ -261,7 +262,8 @@ namespace GuTenTak.Corki
                     }
                 }
             }
-            if (R.IsReady() && ModesMenu2["FarmR"].Cast<CheckBox>().CurrentValue && Program._Player.ManaPercent >= Program.ModesMenu2["ManaLR"].Cast<Slider>().CurrentValue)
+            if (R.IsReady() && ModesMenu2["FarmR"].Cast<CheckBox>().CurrentValue && Program._Player.ManaPercent >= Program.ModesMenu2["ManaLR"].Cast<Slider>().CurrentValue
+                 && R.Handle.Ammo > ModesMenu2["LJRStack"].Cast<Slider>().CurrentValue)
             {
                 var minions = EntityManager.MinionsAndMonsters.EnemyMinions.Where(t => t.IsEnemy && !t.IsDead && t.IsValid && !t.IsInvulnerable && t.IsInRange(Player.Instance.Position, R.Range)).OrderBy(t => t.Health);
                 if (minions.Count() > 0)
@@ -284,7 +286,8 @@ namespace GuTenTak.Corki
                     }
                 }
             }
-            if (R.IsReady() && ModesMenu2["JungleR"].Cast<CheckBox>().CurrentValue && Program._Player.ManaPercent >= Program.ModesMenu2["ManaJR"].Cast<Slider>().CurrentValue)
+            if (R.IsReady() && ModesMenu2["JungleR"].Cast<CheckBox>().CurrentValue && Program._Player.ManaPercent >= Program.ModesMenu2["ManaJR"].Cast<Slider>().CurrentValue
+                && R.Handle.Ammo > ModesMenu2["LJRStack"].Cast<Slider>().CurrentValue)
             {
                 var minions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.Instance.Position, R.Range).Where(t => !t.IsDead && t.IsValid && !t.IsInvulnerable);
                 if (minions.Count() > 0)
@@ -644,33 +647,36 @@ if (ModesMenu1["Snipe"].Cast<CheckBox>().CurrentValue) //&& ModesMenu1["Snipe " 
         public static void AutoR()
         {
             {
-                var Target = TargetSelector.GetTarget(R.Range, DamageType.Mixed);
-                if (Target == null) return;
-                var Rpr = R.GetPrediction(Target);
-                float rSplash = 140;
-                if (Player.HasBuff("corkimissilebarragecounterbig"))
+                if (R.Handle.Ammo <= ModesMenu1["HRStack"].Cast<Slider>().CurrentValue)
                 {
-                    rSplash = 290;
-                }
-
-                bool cast = true;
-                var poutput = R.GetPrediction(Target);
-                foreach (var minion in poutput.CollisionObjects.Where(minion => minion.IsEnemy && minion.Distance(poutput.CastPosition) > rSplash))
-                {
-                    cast = false;
-                    break;
-                }
-
-                if (cast == true)
-                {
-                    if (Rpr.HitChance >= HitChance.Medium)
+                    var Target = TargetSelector.GetTarget(R.Range, DamageType.Mixed);
+                    if (Target == null) return;
+                    var Rpr = R.GetPrediction(Target);
+                    float rSplash = 140;
+                    if (Player.HasBuff("corkimissilebarragecounterbig"))
                     {
-                        R.Cast(Rpr.CastPosition);
+                        rSplash = 290;
                     }
-                }
-                else
-                {
-                    R.Cast(Target);
+
+                    bool cast = true;
+                    var poutput = R.GetPrediction(Target);
+                    foreach (var minion in poutput.CollisionObjects.Where(minion => minion.IsEnemy && minion.Distance(poutput.CastPosition) > rSplash))
+                    {
+                        cast = false;
+                        break;
+                    }
+
+                    if (cast == true)
+                    {
+                        if (Rpr.HitChance >= HitChance.Medium)
+                        {
+                            R.Cast(Rpr.CastPosition);
+                        }
+                    }
+                    else
+                    {
+                        R.Cast(Target);
+                    }
                 }
             }
         }
