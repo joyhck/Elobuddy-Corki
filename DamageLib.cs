@@ -17,7 +17,7 @@ namespace GuTenTak.Corki
         public static float RCalc(Obj_AI_Base target)
         {
             return _Player.CalculateDamageOnUnit(target, DamageType.Physical,
-                (float)(new[] { 0, 100, 130, 160 }[Program.R.Level] + (float)(new[] { 0, 20, 50, 80 }[Program.R.Level] * _Player.FlatPhysicalDamageMod + 0.3f * _Player.FlatMagicDamageMod
+                (float)(new[] { 0, 100, 130, 160 }[Program.R.Level] + (float)(new[] { 0, 20, 60, 100 }[Program.R.Level] * _Player.FlatPhysicalDamageMod + 0.3f * _Player.FlatMagicDamageMod
                     )));
         }
         public static float DmgCalc(AIHeroClient target)
